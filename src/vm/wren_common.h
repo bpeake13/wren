@@ -163,6 +163,7 @@
         {                                                                      \
           fprintf(stderr, "[%s:%d] Assert failed in %s(): %s\n",               \
               __FILE__, __LINE__, __func__, message);                          \
+          __debugbreak();                                                      \
           abort();                                                             \
         }                                                                      \
       } while (false)

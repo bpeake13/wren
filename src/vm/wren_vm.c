@@ -648,7 +648,7 @@ static void createClass(WrenVM* vm, int numFields, ObjModule* module)
   vm->fiber->error = validateSuperclass(vm, name, superclass, numFields);
   if (wrenHasError(vm->fiber)) return;
 
-  ObjClass* classObj = wrenNewClass(vm, AS_CLASS(superclass), numFields,
+  ObjClass* classObj = wrenNewClass(vm, AS_CLASS(superclass), module, numFields,
                                     AS_STRING(name));
   vm->fiber->stackTop[-1] = OBJ_VAL(classObj);
 

@@ -1225,6 +1225,7 @@ static ObjClass* defineClass(WrenVM* vm, ObjModule* module, const char* name)
   wrenPushRoot(vm, (Obj*)nameString);
 
   ObjClass* classObj = wrenNewSingleClass(vm, 0, nameString);
+  classObj->srcModule = module;
 
   wrenDefineVariable(vm, module, name, nameString->length, OBJ_VAL(classObj), NULL);
 

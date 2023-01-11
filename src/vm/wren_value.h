@@ -393,6 +393,7 @@ struct sObjClass
 {
   Obj obj;
   ObjClass* superclass;
+  ObjModule* srcModule;
 
   // The number of fields needed for an instance of this class, including all
   // of its superclass fields.
@@ -628,7 +629,7 @@ ObjClass* wrenNewSingleClass(WrenVM* vm, int numFields, ObjString* name);
 void wrenBindSuperclass(WrenVM* vm, ObjClass* subclass, ObjClass* superclass);
 
 // Creates a new class object as well as its associated metaclass.
-ObjClass* wrenNewClass(WrenVM* vm, ObjClass* superclass, int numFields,
+ObjClass* wrenNewClass(WrenVM* vm, ObjClass* superclass, ObjModule* module, int numFields,
                        ObjString* name);
 
 void wrenBindMethod(WrenVM* vm, ObjClass* classObj, int symbol, Method method);
