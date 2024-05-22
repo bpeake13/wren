@@ -92,6 +92,7 @@ ObjClass* wrenNewClass(WrenVM* vm, ObjClass* superclass, ObjModule* module, int 
   wrenPushRoot(vm, AS_OBJ(metaclassName));
 
   ObjClass* metaclass = wrenNewSingleClass(vm, 0, AS_STRING(metaclassName));
+  metaclass->srcModule = module;
   metaclass->obj.classObj = vm->classClass;
 
   wrenPopRoot(vm);
